@@ -1,5 +1,3 @@
-// Root module exists only for the Vercel Go function in api/.
-// All real code lives in ./backend (its own module).
 module github.com/haramurti/IID-mock-test
 
 go 1.25.5
@@ -23,4 +21,5 @@ require (
 	golang.org/x/sys v0.28.0 // indirect
 )
 
+// Root module exists only for the Vercel Go function in api/; real code lives in ./backend.
 replace github.com/haramurti/IID-mock-test/backend => ./backend
