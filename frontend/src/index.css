@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+/* EXPA-like design tokens. Use them as Tailwind classes, e.g. bg-primary, text-muted. */
+@theme {
+  --color-sidebar: #0f1b3d;
+  --color-primary: #1e6ff1;
+  --color-page: #f5f6f8;
+  --color-card: #ffffff;
+  --color-line: #e5e7eb;
+  --color-ink: #111827;
+  --color-muted: #6b7280;
+}
+
+body {
+  @apply bg-page text-ink antialiased;
+}
