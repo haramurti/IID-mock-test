@@ -4,3 +4,6 @@ node_modules/
 frontend/dist/
 bin/
 .DS_Store
+# frontend build copied in by `make build`; keep only the placeholder
+backend/web/dist/*
+!backend/web/dist/.gitkeep
