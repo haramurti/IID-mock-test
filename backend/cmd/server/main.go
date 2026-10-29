@@ -9,6 +9,7 @@ import (
 
 	"github.com/haramurti/IID-mock-test/backend/internal/config"
 	"github.com/haramurti/IID-mock-test/backend/internal/httpapi"
+	"github.com/haramurti/IID-mock-test/backend/internal/leads"
 )
 
 func main() {
@@ -21,7 +22,11 @@ func main() {
 	app.Use(recover.New())
 	app.Use(logger.New())
 
-	httpapi.Register(app)
+	source, err := leads.NewSource(cfg.DataSource, cfg.ExpaToken)
+	if err != nil {
+		log.Fatalf("data source: %v", err)
+	}
+	httpapi.New(source).Register(app)
 
 	log.Printf("listening on :%s (data source: %s)", cfg.Port, cfg.DataSource)
 	log.Fatal(app.Listen(":" + cfg.Port))

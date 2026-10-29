@@ -54,7 +54,7 @@ func main() {
 		if err != nil {
 			log.Fatalf("bad -anchor: %v", err)
 		}
-		anchor = t.Add(23 * time.Hour) // late in the anchor day
+		anchor = t // start of the anchor day (UTC), so nothing lands in the future
 	}
 
 	r := rand.New(rand.NewSource(*seed))
